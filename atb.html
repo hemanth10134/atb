@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Wishes For Your Exam</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #4776E6, #8E54E9);
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            left: 25%;
+            bottom: -8px;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(90deg, #4776E6, #8E54E9);
+        }
+        
+        .message {
+            color: #555;
+            line-height: 1.7;
+            margin: 30px 0;
+            font-size: 1.2rem;
+        }
+        
+        .highlight {
+            color: #4776E6;
+            font-weight: bold;
+        }
+        
+        .tips {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .tips h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .tips ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .tips li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #8E54E9;
+            border-radius: 50%;
+            opacity: 0;
+            animation: confetti-fall 3s ease-in-out infinite;
+        }
+        
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #4776E6, #8E54E9);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(71, 118, 230, 0.3);
+        }
+        
+        .footer {
+            margin-top: 40px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .message {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Wishing You Success!</h1>
+        
+        <div class="message">
+            <p>Dear Kiddo,</p>
+            <br>
+            <p>As you prepare for your upcoming exam, I want you to know that <span class="highlight">I believe in you completely</span>. All your hard work, dedication, and perseverance have prepared you for this moment.</p>
+            <br>
+            <p>Remember that this exam is just a chance to demonstrate all the knowledge you've gained. Take a deep breath, trust yourself, and shine brightly!</p>
+            <br>
+            <p>No matter the outcome, be proud of how far you've come. Your determination and effort are truly inspiring.</p>
+        </div>
+        
+        <div class="tips">
+            <h2>Quick Exam Tips</h2>
+            <ul>
+                <li>dont stress to much ,be peice ra kiddd</li>
+                <li>Eat good food n drink moree water raaa</li>
+                <li>Read each question carefully before answering</li>
+                <li>Manage your time wisely during the exam</li>
+                <li>If you get stuck, move on and come back later</li>
+                <li>Take deep breaths if you feel anxious</li>
+            </ul>
+        </div>
+        
+        <button class="btn" id="confettiBtn">Send Good Vibes!</button>
+        
+        <div class="footer">
+            <p>Sending positive energy and confidence your way!</p>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('confettiBtn').addEventListener('click', function() {
+            // Create confetti elements
+            for (let i = 0; i < 50; i++) {
+                createConfetti();
+            }
+            
+            // Change button text
+            this.textContent = "Good Vibes Sent! ✨";
+            setTimeout(() => {
+                this.textContent = "Send Good Vibes!";
+            }, 3000);
+        });
+        
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            
+            // Random position
+            confetti.style.left = Math.random() * 100 + '%';
+            
+            // Random color
+            const colors = ['#4776E6', '#8E54E9', '#FF8C00', '#FF2E63', '#06D6A0'];
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            
+            // Random size
+            const size = Math.random() * 8 + 5;
+            confetti.style.width = size + 'px';
+            confetti.style.height = size + 'px';
+            
+            // Random delay
+            confetti.style.animationDelay = Math.random() * 3 + 's';
+            
+            document.body.appendChild(confetti);
+            
+            // Remove after animation
+            setTimeout(() => {
+                confetti.remove();
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
